@@ -287,37 +287,6 @@
 			var lastX = -9999
 			var lastY = -9999
 
-			// jQuery(window).on('touchmove', function(e){
-			// 	if( lastX == -9999 ) {
-			// 		lastX = e.touches[0].clientX
-			// 	}
-			// 	if( lastY == -9999 ) {
-			// 		lastY = e.touches[0].clientY
-			// 	}
-
-			// 	$bubbles.css({
-			// 		left: e.touches[0].clientX - 10,
-			// 		top: e.touches[0].clientY - 30,
-			// 		opacity: 1
-			// 	})
-
-			// 	if( Math.abs(e.touches[0].clientX - lastX) > 20 || Math.abs(e.touches[0].clientY - lastY) > 20 ) {
-			// 		lastX = e.touches[0].clientX
-			// 		lastY = e.touches[0].clientY
-
-			// 		images_ix++
-			// 		if(images_ix > images_length-1){
-			// 			images_ix = 0
-			// 		}
-			// 		console.log(images_ix);
-			// 		// $bubbles.find('img.active').removeClass('active')
-			// 		$bubbles.find('img').eq(images_ix).removeClass('active').addClass('active')
-			// 	}
-			// })
-			// jQuery(window).on('touchend touchcancel', function(e){
-			// 	$bubbles.css('opacity', 0)
-			// })
-
 			jQuery(window).on('touchmove', function (e) {
 				if (lastX == -9999) {
 					lastX = e.touches[0].clientX
@@ -326,7 +295,7 @@
 					lastY = e.touches[0].clientY
 				}
 
-				if (Math.abs(e.touches[0].clientX - lastX) > 20 || Math.abs(e.touches[0].clientY - lastY) > 20) {
+				if (Math.abs(e.touches[0].clientX - lastX) > 3 || Math.abs(e.touches[0].clientY - lastY) > 3) {
 					lastX = e.touches[0].clientX
 					lastY = e.touches[0].clientY
 
