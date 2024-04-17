@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1" />
+		<title>Patrick Star Coin on Blast Chain on Pump.fun!</title>
+		<style>
+			@font-face {
+				font-family: 'sponge';
+				src: url('sponge.ttf');
+			}
+			body {
+				background-image: url('Bubbletown_002.webp');
+				background-size: cover;
+				background-position: center;
+				background-repeat: none;
+				margin: 0;
+				font-family: 'sponge', Courier, monospace;
+				color: white;
+				font-size: 30px;
+			}
+			h1 {
+				font-family: 'sponge';
+				font-size: 80px;
+				color: white;
+				text-align: center;
+				text-shadow: 5px 5px rgb(11, 0, 75);
+				margin: 0;
+				z-index: 2;
+			}
+			h2 {
+				font-family: 'sponge';
+				font-size: 30px;
+				color: white;
+				text-align: center;
+				text-shadow: 2px 2px rgb(11, 0, 75);
+				margin: 10px 0 40px;
+				z-index: 2;
+			}
+			.patrick {
+				position: fixed;
+				bottom: 0px;
+				right: 20px;
+				width: 400px;
+			}
+			.translucent {
+				padding-top: 100px;
+				padding-bottom: 100px;
+				background-color: rgba(0, 0, 255, 0.5);
+				width: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				flex-direction: column;
+				min-height: 100svh;
+			}
+			.bubbles {
+				position: fixed;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 3;
+				pointer-events: none;
+			}
+			.bubbles img {
+				opacity: 0;
+				width: 50px;
+				position: fixed;
+				left: 25px;
+				transform: translateY(0);
+			}
+			.bubbles img.active {
+				animation: bubbleup forwards 800ms;
+			}
+			/* 
+			.copy-button {
+				backdrop-filter: blur(10px);
+				background-color: rgba(0, 0, 255, 0.5);
+				border: 2px solid white;
+				border-radius: 15px;
+				color: white;
+				padding: 10px;
+				cursor: pointer;
+				display: flex;
+				font-size: 20px;
+			}
+			.copy-button p {
+				margin: 0;
+				margin-left: 10px;
+			}
+			.copy-button:hover {
+				transform: scale(1.1);
+			} */
+
+			.buy-button {
+				font-family: 'sponge', Courier, monospace;
+				backdrop-filter: blur(10px);
+				background-color: rgba(0, 0, 255, 0.5);
+				border: 2px solid white;
+				border-radius: 15px;
+				color: white;
+				padding: 10px;
+				cursor: pointer;
+				display: flex;
+				font-size: 30px;
+				padding: 20px;
+				line-height: 1;
+				/* animation: 0.5s infinite alternate zoomy; */
+				padding-top: 25px;
+			}
+			.buy-button a {
+				color: yellow;
+				margin: 0;
+				text-decoration: none;
+			}
+			.buy-button:hover {
+				transform: scale(1.1);
+			}
+
+			.info {
+				width: 500px;
+				background-color: rgba(0, 0, 255, 0.5);
+				backdrop-filter: blur(10px);
+				padding: 40px;
+				border-radius: 50px;
+				border: 4px solid rgb(11, 0, 75);
+				margin-top: 40px;
+				box-sizing: border-box;
+				line-height: 1.2;
+			}
+
+			.info p {
+				margin: 0 0 0.5em 0;
+			}
+			.info p:last-child {
+				margin-bottom: 0;
+			}
+
+			.info img {
+				height: 20px;
+				vertical-align: middle;
+			}
+
+			.socials {
+				font-size: 40px;
+				background-color: rgba(0, 0, 255, 0.5);
+				backdrop-filter: blur(10px);
+				padding: 20px;
+				color: white;
+				border-radius: 50px;
+				border: 4px solid rgb(11, 0, 75);
+				margin-top: 40px;
+				box-sizing: border-box;
+				display: inline-flex;
+				gap: 10px;
+			}
+			.socials a {
+				display: inline-flex;
+			}
+
+			a {
+				color: white;
+			}
+
+			.info-small-text {
+				font-family: 'Courier New', Courier, monospace;
+				font-size: 16px;
+			}
+
+			@keyframes zoomy {
+				from {
+					transform: scale(1.1);
+				}
+
+				to {
+					transform: scale(1);
+				}
+			}
+
+			@keyframes bubbleup {
+				0% {
+					opacity: 1;
+					transform: translateY(0);
+				}
+				100% {
+					opacity: 0;
+					transform: translateY(-400px);
+				}
+			}
+
+			@media (max-width: 900px) {
+				h1 {
+					font-size: 50px;
+				}
+				.patrick {
+					width: 200px;
+				}
+				.copy-button {
+					font-size: 15px;
+				}
+				.info {
+					width: 90%;
+					font-size: 20px;
+				}
+				.translucent {
+					padding-bottom: 300px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="translucent">
+			<h1>Patrick Star Coin</h1>
+			<h2>Patrick on Blast Chain on Pump.fun!</h2>
+			<!-- <button class="copy-button" onclick="myCopyFunction()">
+				<svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+					<rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+					<path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+				</svg>
+				<p>0xmycaaddress</p>
+				<input type="text" value="0xmycaaddress" id="copyMe" style="display: none" />
+			</button> -->
+			<button class="buy-button">
+				<a href="">Buy Here! </a>
+			</button>
+			<div class="info">
+				<p>- Recognizable Meme</p>
+				<p>- No Presales</p>
+				<p>- Tax: 0/0</p>
+				<p>- Anti-rug technology on <img src="pump.fun.webp" /> <a href="https://pump.fun" target="_blank">pump.fun</a> with <img src="blast.png" /> <a href="https://blastblockchain.com/" target="_blank">Blast Chain</a>!</p>
+				<p>- Active Telegram Community</p>
+				<p>- Marketing: Shilling on X, 4Chan, Reddit</p>
+				<p>- Live under a Rock!</p>
+				<p>- German Dev</p>
+			</div>
+			<div class="socials">
+				<a href="https://twitter.com/patrickstarpump" target="_blank" rel="noopener noreferrer"
+					><svg stroke="#ffffff" fill="#ffffff" stroke-width="0" viewBox="0 0 1024 1024" class="hover:text-gry cursor-pointer transition-all ease-in-out duration-300" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M928 254.3c-30.6 13.2-63.9 22.7-98.2 26.4a170.1 170.1 0 0 0 75-94 336.64 336.64 0 0 1-108.2 41.2A170.1 170.1 0 0 0 672 174c-94.5 0-170.5 76.6-170.5 170.6 0 13.2 1.6 26.4 4.2 39.1-141.5-7.4-267.7-75-351.6-178.5a169.32 169.32 0 0 0-23.2 86.1c0 59.2 30.1 111.4 76 142.1a172 172 0 0 1-77.1-21.7v2.1c0 82.9 58.6 151.6 136.7 167.4a180.6 180.6 0 0 1-44.9 5.8c-11.1 0-21.6-1.1-32.2-2.6C211 652 273.9 701.1 348.8 702.7c-58.6 45.9-132 72.9-211.7 72.9-14.3 0-27.5-.5-41.2-2.1C171.5 822 261.2 850 357.8 850 671.4 850 843 590.2 843 364.7c0-7.4 0-14.8-.5-22.2 33.2-24.3 62.3-54.4 85.5-88.2z"
+						></path></svg
+				></a>
+				<a href="https://t.me/patrickstaronblast" target="_blank" rel="noopener noreferrer"
+					><svg stroke="#ffffff" fill="#ffffff" stroke-width="0" viewBox="0 0 24 24" class="hover:text-gry cursor-pointer transition-all ease-in-out duration-300" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="m20.665 3.717-17.73 6.837c-1.21.486-1.203 1.161-.222 1.462l4.552 1.42 10.532-6.645c.498-.303.953-.14.579.192l-8.533 7.701h-.002l.002.001-.314 4.692c.46 0 .663-.211.921-.46l2.211-2.15 4.599 3.397c.848.467 1.457.227 1.668-.785l3.019-14.228c.309-1.239-.473-1.8-1.282-1.434z"
+						></path></svg
+				></a>
+			</div>
+			<div class="info info-small-text">
+				<p>How does <a href="https://pump.fun/" target="_blank">pump.fun</a> work? From pump.fun website:</p>
+				<p>Pump prevents rugs by making sure that all created tokens are safe. Each coin on pump is a fair-launch with no presale and no team allocation.<br /></p>
+				<ol>
+					<li>pick a coin that you like</li>
+					<li>buy the coin on the bonding curve</li>
+					<li>sell at any time to lock in your profits or losses</li>
+					<li>when enough people buy on the bonding curve it reaches a market cap of $69k</li>
+					<li>$12k of liquidity is then deposited in raydium and burned</li>
+				</ol>
+			</div>
+
+			<img class="patrick" src="patrick-star-seeklogo.svg" />
+		</div>
+
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+		<div class="bubbles">
+			<img src="bubble.svg" />
+			<img src="bubble.svg" />
+			<img src="bubble.svg" />
+			<img src="bubble.svg" />
+			<img src="bubble.svg" />
+			<img src="bubble.svg" />
+			<img src="bubble.svg" />
+			<img src="bubble.svg" />
+			<img src="bubble.svg" />
+			<img src="bubble.svg" />
+		</div>
+
+		<script>
+			var $bubbles = jQuery('.bubbles')
+			var $bubbles_img = jQuery('.bubbles img')
+			var images_length = $bubbles_img.length
+			var images_ix = 0
+
+			var lastX = -9999
+			var lastY = -9999
+
+			// jQuery(window).on('touchmove', function(e){
+			// 	if( lastX == -9999 ) {
+			// 		lastX = e.touches[0].clientX
+			// 	}
+			// 	if( lastY == -9999 ) {
+			// 		lastY = e.touches[0].clientY
+			// 	}
+
+			// 	$bubbles.css({
+			// 		left: e.touches[0].clientX - 10,
+			// 		top: e.touches[0].clientY - 30,
+			// 		opacity: 1
+			// 	})
+
+			// 	if( Math.abs(e.touches[0].clientX - lastX) > 20 || Math.abs(e.touches[0].clientY - lastY) > 20 ) {
+			// 		lastX = e.touches[0].clientX
+			// 		lastY = e.touches[0].clientY
+
+			// 		images_ix++
+			// 		if(images_ix > images_length-1){
+			// 			images_ix = 0
+			// 		}
+			// 		console.log(images_ix);
+			// 		// $bubbles.find('img.active').removeClass('active')
+			// 		$bubbles.find('img').eq(images_ix).removeClass('active').addClass('active')
+			// 	}
+			// })
+			// jQuery(window).on('touchend touchcancel', function(e){
+			// 	$bubbles.css('opacity', 0)
+			// })
+
+			jQuery(window).on('touchmove', function (e) {
+				if (lastX == -9999) {
+					lastX = e.touches[0].clientX
+				}
+				if (lastY == -9999) {
+					lastY = e.touches[0].clientY
+				}
+
+				if (Math.abs(e.touches[0].clientX - lastX) > 20 || Math.abs(e.touches[0].clientY - lastY) > 20) {
+					lastX = e.touches[0].clientX
+					lastY = e.touches[0].clientY
+
+					images_ix++
+					if (images_ix > images_length - 1) {
+						images_ix = 0
+					}
+
+					$bubbles
+						.find('img')
+						.eq(images_ix)
+						.css({
+							left: e.touches[0].clientX - 25,
+							top: e.touches[0].clientY - 50,
+						})
+
+					$bubbles.find('img').eq(images_ix).removeClass('active')
+					setTimeout(function () {
+						$bubbles.find('img').eq(images_ix).addClass('active')
+					}, 60)
+				}
+			})
+
+			jQuery(window).on('mousemove', function (e) {
+				if (lastX == -9999) {
+					lastX = e.clientX
+				}
+				if (lastY == -9999) {
+					lastY = e.clientY
+				}
+
+				if (Math.abs(e.clientX - lastX) > 100 || Math.abs(e.clientY - lastY) > 100) {
+					lastX = e.clientX
+					lastY = e.clientY
+
+					images_ix++
+					if (images_ix > images_length - 1) {
+						images_ix = 0
+					}
+
+					$bubbles
+						.find('img')
+						.eq(images_ix)
+						.css({
+							left: e.clientX - 25,
+							top: e.clientY - 50,
+						})
+
+					$bubbles.find('img').eq(images_ix).removeClass('active')
+					setTimeout(function () {
+						$bubbles.find('img').eq(images_ix).addClass('active')
+					}, 60)
+				}
+			})
+
+			/*function myCopyFunction() {
+				var copyText = document.getElementById('copyMe')
+				copyText.select()
+				copyText.setSelectionRange(0, 99999)
+
+				console.log('copyText.value')
+				console.log(copyText.value)
+
+				navigator.clipboard
+					.writeText(copyText.value)
+					.then(() => {
+						alert('successfully copied')
+					})
+					.catch(() => {
+						alert('something went wrong')
+					})
+			}*/
+		</script>
+	</body>
+</html>
