@@ -281,9 +281,35 @@
 			<img src="bubble.svg" />
 			<img src="bubble.svg" />
 			<img src="bubble.svg" />
+			<img src="bubble.svg" />
+			<img src="bubble.svg" />
+			<img src="bubble.svg" />
+			<img src="bubble.svg" />
+			<img src="bubble.svg" />
+			<img src="bubble.svg" />
+			<img src="bubble.svg" />
+			<img src="bubble.svg" />
+			<img src="bubble.svg" />
+			<img src="bubble.svg" />
+			<img src="bubble.svg" />
+			<img src="bubble.svg" />
+			<img src="bubble.svg" />
+			<img src="bubble.svg" />
+			<img src="bubble.svg" />
+			<img src="bubble.svg" />
+			<img src="bubble.svg" />
+			<img src="bubble.svg" />
+			<img src="bubble.svg" />
+			<img src="bubble.svg" />
 		</div>
 
 		<script>
+			function getRandomInt(min, max) {
+				const minCeiled = Math.ceil(min)
+				const maxFloored = Math.floor(max)
+				return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled) // The maximum is exclusive and the minimum is inclusive
+			}
+
 			var $bubbles = jQuery('.bubbles')
 			var $bubbles_img = jQuery('.bubbles img')
 			var images_length = $bubbles_img.length
@@ -291,6 +317,18 @@
 
 			var lastX = -9999
 			var lastY = -9999
+
+			jQuery(window).on('scroll', function (e) {
+				setTimeout(function () {
+					showBubble(getRandomInt(0, window.innerWidth), getRandomInt(window.innerHeight / 2, window.innerHeight))
+				}, 0)
+				setTimeout(function () {
+					showBubble(getRandomInt(0, window.innerWidth), getRandomInt(window.innerHeight / 2, window.innerHeight))
+				}, 1000)
+				setTimeout(function () {
+					showBubble(getRandomInt(0, window.innerWidth), getRandomInt(window.innerHeight / 2, window.innerHeight))
+				}, 1500)
+			})
 
 			jQuery(window).on('touchend touchcancel', function (e) {
 				showBubble(lastX, lastY)
