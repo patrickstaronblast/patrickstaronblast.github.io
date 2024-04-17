@@ -61,6 +61,19 @@
       "q" : 90,
       "rq" : 75
     },
+    "\/banner.png" : {
+      "ft" : 32768,
+      "iS" : 1005272,
+      "oA" : 0,
+      "oAP" : "\/banner.png",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "oT" : 1,
+      "ou" : "lpckwebp-none",
+      "q" : 90,
+      "rq" : 75
+    },
     "\/blast.png" : {
       "ft" : 32768,
       "iS" : 30396,
@@ -157,6 +170,19 @@
       "oA" : 0,
       "oAP" : "\/index.html",
       "oF" : 0
+    },
+    "\/logo_square.png" : {
+      "ft" : 32768,
+      "iS" : 451990,
+      "oA" : 0,
+      "oAP" : "\/logo_square.png",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "oT" : 1,
+      "ou" : "lpckwebp-none",
+      "q" : 90,
+      "rq" : 75
     },
     "\/logo.png" : {
       "ft" : 32768,
