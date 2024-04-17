@@ -292,7 +292,12 @@
 			var lastX = -9999
 			var lastY = -9999
 
-			jQuery(window).on('touchmove', function (e) {
+			jQuery(window).on('touchend', function () {
+				lastX = -9999
+				lastY = -9999
+			})
+
+			jQuery(window).on('touchmove touchstart', function (e) {
 				if (lastX == -9999) {
 					lastX = e.touches[0].clientX
 				}
@@ -300,7 +305,7 @@
 					lastY = e.touches[0].clientY
 				}
 
-				if (Math.abs(e.touches[0].clientX - lastX) > 3 || Math.abs(e.touches[0].clientY - lastY) > 3) {
+				if (Math.abs(e.touches[0].clientX - lastX) > 10 || Math.abs(e.touches[0].clientY - lastY) > 10) {
 					lastX = e.touches[0].clientX
 					lastY = e.touches[0].clientY
 
