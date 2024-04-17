@@ -292,15 +292,15 @@
 			var lastX = -9999
 			var lastY = -9999
 
-			jQuery(window).on('touchend touchcancel', function () {
-				showBubble()
-				showBubble()
+			jQuery(window).on('touchend touchcancel', function (e) {
+				showBubble(lastX, lastY)
+				showBubble(lastX, lastY)
 			})
 
-			jQuery(window).on('touchstart', function () {
-				showBubble()
-				showBubble()
-				showBubble()
+			jQuery(window).on('touchstart', function (e) {
+				showBubble(e.touches[0].clientX, e.touches[0].clientY)
+				showBubble(e.touches[0].clientX, e.touches[0].clientY)
+				showBubble(e.touches[0].clientX, e.touches[0].clientY)
 			})
 
 			jQuery(window).on('touchmove', function (e) {
@@ -315,11 +315,11 @@
 					lastX = e.touches[0].clientX
 					lastY = e.touches[0].clientY
 
-					showBubble()
+					showBubble(e.touches[0].clientX, e.touches[0].clientY)
 				}
 			})
 
-			function showBubble() {
+			function showBubble(x, y) {
 				images_ix++
 				if (images_ix > images_length - 1) {
 					images_ix = 0
@@ -329,8 +329,8 @@
 					.find('img')
 					.eq(images_ix)
 					.css({
-						left: e.touches[0].clientX - 25,
-						top: e.touches[0].clientY - 50,
+						left: x - 25,
+						top: y - 50,
 					})
 
 				$bubbles.find('img').eq(images_ix).removeClass('active')
