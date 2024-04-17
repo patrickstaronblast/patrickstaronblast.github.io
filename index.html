@@ -319,15 +319,7 @@
 			var lastY = -9999
 
 			jQuery(window).on('scroll', function (e) {
-				setTimeout(function () {
-					showBubble(getRandomInt(0, window.innerWidth), getRandomInt(window.innerHeight / 2, window.innerHeight))
-				}, 0)
-				setTimeout(function () {
-					showBubble(getRandomInt(0, window.innerWidth), getRandomInt(window.innerHeight / 2, window.innerHeight))
-				}, 1000)
-				setTimeout(function () {
-					showBubble(getRandomInt(0, window.innerWidth), getRandomInt(window.innerHeight / 2, window.innerHeight))
-				}, 1500)
+				showBubble(getRandomInt(0, window.innerWidth), getRandomInt(window.innerHeight / 2, window.innerHeight))
 			})
 
 			jQuery(window).on('touchend touchcancel', function (e) {
