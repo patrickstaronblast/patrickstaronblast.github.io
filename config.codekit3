@@ -87,6 +87,32 @@
       "q" : 100,
       "rq" : 75
     },
+    "\/blast_patrick_x2.png" : {
+      "ft" : 32768,
+      "iS" : 137770,
+      "oA" : 0,
+      "oAP" : "\/blast_patrick_x2.png",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "oT" : 1,
+      "ou" : "lpckwebp-none",
+      "q" : 90,
+      "rq" : 75
+    },
+    "\/blast_patrick.png" : {
+      "ft" : 32768,
+      "iS" : 55103,
+      "oA" : 0,
+      "oAP" : "\/blast_patrick.png",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "oT" : 1,
+      "ou" : "lpckwebp-none",
+      "q" : 90,
+      "rq" : 75
+    },
     "\/blast.png" : {
       "ft" : 32768,
       "iS" : 30396,
